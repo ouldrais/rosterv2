@@ -1,0 +1,28 @@
+{
+  "rosterv2App": {
+    "shiftDemand": {
+      "home": {
+        "title": "ShiftDemands",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Shift Demand",
+        "createOrEditLabel": "Créer ou éditer un Shift Demand",
+        "notFound": "Aucun Shift Demand trouvé"
+      },
+      "created": "Un nouveau Shift Demand a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Shift Demand avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Shift Demand avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Shift Demand {{ id }} ?"
+      },
+      "detail": {
+        "title": "Shift Demand"
+      },
+      "id": "ID",
+      "count": "Count",
+      "shift": "Shift",
+      "task": "Task",
+      "position": "Position",
+      "department": "Department"
+    }
+  }
+}

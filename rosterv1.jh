@@ -1,0 +1,192 @@
+
+entity Team {
+	key Long
+    id Long
+}
+
+entity TeamPlan {
+	
+}
+
+entity Resource {
+	key Long
+	firstName String
+	lastName String
+	teamRole String
+	exchangeAllowed Boolean
+}
+
+entity ResourcePlan {
+	availability Boolean
+}
+
+entity ShiftDemand {
+	headCount Boolean
+}
+
+entity Task {
+	key Long
+    id Long
+    description String
+}
+
+entity Facility {
+	key Long
+    id Long
+}
+
+entity ShiftType {
+	key Long
+    id Long
+    start Instant
+    end Instant
+}
+
+entity RefCalendar {
+	key Long
+    id Long
+    status String
+}
+entity ResourceTraining {
+	status String
+	level String
+	trainer String
+	activeFrom Instant
+	activeto Instant
+
+}
+
+entity Training {
+	key Long
+	description String
+}
+
+entity PositionRequirement {
+	mandatoty String
+}
+
+entity Position {
+	key Long
+	leadership String
+}
+
+entity Department {
+	key Long
+	team String
+}
+
+entity Shift {
+	key Long
+	shiftStart Instant
+	shiftEnd Instant
+	type String
+}
+
+entity ShiftDemand {
+	count Long
+}
+
+entity ShiftTemplate {
+	key Long
+	shiftStart Instant
+	shiftEnd Instant
+	type String
+}
+entity Role {
+	key Long
+	id Long
+}
+
+entity ResourceRoles {
+
+}
+
+entity RefRotation {
+	order Long
+}
+
+entity RefRotation {
+	order Long
+}
+
+
+relationship ManyToOne {
+	RefRotation{shiftType(key)} to ShiftType
+}
+
+relationship ManyToOne {
+	RefCalendar{shiftType(key)} to ShiftType
+}
+
+
+relationship ManyToOne {
+	ShiftDemand{shift(key)} to Shift
+}
+
+relationship ManyToOne {
+	ShiftDemand{task(key)} to Task
+}
+
+relationship ManyToOne {
+	ShiftDemand{position(key)} to Position
+}
+
+relationship ManyToOne {
+	Resource{team(key)} to Team
+}
+
+relationship ManyToOne {
+	ResourceTraining{resource(key)} to Resource
+}
+
+relationship ManyToOne {
+	ResourcePlan{resource(key)} to Resource
+}
+
+relationship ManyToOne {
+	PositionRequirement {training(key)} to Training
+}
+
+relationship ManyToOne {
+	PositionRequirement{position(key)} to Position
+}
+
+relationship ManyToOne {
+	Position{department(key)} to Department
+}
+
+relationship ManyToOne {
+	Department{facility(key)} to Facility
+}
+
+relationship ManyToOne {
+	ResourceRoles{role(key)} to Role
+}
+
+relationship ManyToOne {
+	ResourceRoles{Resource(key)} to Resource
+}
+relationship ManyToOne {
+	TeamPlan{team(key)} to Team
+}
+relationship ManyToOne {
+	TeamPlan{Shift(key)} to Shift
+}
+relationship ManyToOne {
+	ShiftDemand{shift(key)} to Shift
+}
+relationship ManyToOne {
+	ShiftDemand{Department(key)} to Department
+}
+relationship ManyToOne {
+	ResourcePlan{shift(key)} to Shift
+}
+
+relationship ManyToOne {
+	ResourcePlan{position(key)} to Position
+}
+
+relationship ManyToOne {
+	ResourceTraining{training(key)} to Training
+}
+

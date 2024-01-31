@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resource) {
+      <div>
+        <h2 data-cy="resourceDetailsHeading"><span jhiTranslate="rosterv2App.resource.detail.title">Resource</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ resource.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resource.key">Key</span></dt>
+          <dd>
+            <span>{{ resource.key }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resource.firstName">First Name</span></dt>
+          <dd>
+            <span>{{ resource.firstName }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resource.lastName">Last Name</span></dt>
+          <dd>
+            <span>{{ resource.lastName }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resource.teamRole">Team Role</span></dt>
+          <dd>
+            <span>{{ resource.teamRole }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resource.exchangeAllowed">Exchange Allowed</span></dt>
+          <dd>
+            <span>{{ resource.exchangeAllowed }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resource.team">Team</span></dt>
+          <dd>
+            @if (resource.team) {
+              <div>
+                <a [routerLink]="['/team', resource.team.id, 'view']">{{ resource.team.key }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/resource', resource.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

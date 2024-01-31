@@ -1,0 +1,25 @@
+{
+  "rosterv2App": {
+    "refRotation": {
+      "home": {
+        "title": "Ref Rotations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ref Rotation",
+        "createOrEditLabel": "Create or edit a Ref Rotation",
+        "notFound": "No Ref Rotations found"
+      },
+      "created": "A new Ref Rotation is created with identifier {{ param }}",
+      "updated": "A Ref Rotation is updated with identifier {{ param }}",
+      "deleted": "A Ref Rotation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ref Rotation {{ id }}?"
+      },
+      "detail": {
+        "title": "Ref Rotation"
+      },
+      "id": "ID",
+      "order": "Order",
+      "shiftType": "Shift Type"
+    }
+  }
+}

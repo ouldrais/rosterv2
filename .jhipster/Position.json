@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "changelogDate": "20240131232646"
+  },
+  "applications": "*",
+  "entityTableName": "position",
+  "fields": [
+    {
+      "fieldName": "key",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "leadership",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Position",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "department",
+      "relationshipName": "department",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

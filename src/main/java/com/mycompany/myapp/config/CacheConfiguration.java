@@ -48,6 +48,25 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Team.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.TeamPlan.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Resource.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ResourcePlan.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ShiftDemand.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Task.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Facility.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ShiftType.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.RefCalendar.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ResourceTraining.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Training.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.PositionRequirement.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Position.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Department.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Shift.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ShiftTemplate.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Role.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.ResourceRoles.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.RefRotation.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,27 @@
+{
+  "rosterv2App": {
+    "shift": {
+      "home": {
+        "title": "Shifts",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Shift",
+        "createOrEditLabel": "Créer ou éditer un Shift",
+        "notFound": "Aucun Shift trouvé"
+      },
+      "created": "Un nouveau Shift a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Shift avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Shift avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Shift {{ id }} ?"
+      },
+      "detail": {
+        "title": "Shift"
+      },
+      "id": "ID",
+      "key": "Key",
+      "shiftStart": "Shift Start",
+      "shiftEnd": "Shift End",
+      "type": "Type"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "rosterv2App": {
+    "shiftType": {
+      "home": {
+        "title": "ShiftTypes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Shift Type",
+        "createOrEditLabel": "Créer ou éditer un Shift Type",
+        "notFound": "Aucun Shift Type trouvé"
+      },
+      "created": "Un nouveau Shift Type a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Shift Type avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Shift Type avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Shift Type {{ id }} ?"
+      },
+      "detail": {
+        "title": "Shift Type"
+      },
+      "key": "Key",
+      "id": "Id",
+      "start": "Start",
+      "end": "End"
+    }
+  }
+}

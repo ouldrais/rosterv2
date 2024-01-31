@@ -1,0 +1,47 @@
+{
+  "annotations": {
+    "changelogDate": "20240131232346"
+  },
+  "applications": "*",
+  "entityTableName": "resource_training",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "level",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trainer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activeFrom",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "activeto",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "ResourceTraining",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "resource",
+      "relationshipName": "resource",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "training",
+      "relationshipName": "training",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

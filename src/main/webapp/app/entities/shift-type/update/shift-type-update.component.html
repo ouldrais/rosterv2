@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-shift-type-heading" data-cy="ShiftTypeCreateUpdateHeading" jhiTranslate="rosterv2App.shiftType.home.createOrEditLabel">
+        Create or edit a Shift Type
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftType.key" for="field_key">Key</label>
+          <input type="number" class="form-control" name="key" id="field_key" data-cy="key" formControlName="key" />
+        </div>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="rosterv2App.shiftType.id" for="field_id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftType.start" for="field_start">Start</label>
+          <div class="d-flex">
+            <input
+              id="field_start"
+              data-cy="start"
+              type="datetime-local"
+              class="form-control"
+              name="start"
+              formControlName="start"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftType.end" for="field_end">End</label>
+          <div class="d-flex">
+            <input
+              id="field_end"
+              data-cy="end"
+              type="datetime-local"
+              class="form-control"
+              name="end"
+              formControlName="end"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

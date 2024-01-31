@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity TeamPlan.
+    -->
+    <changeSet id="20240131231546-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="team_id"
+                                 baseTableName="team_plan"
+                                 constraintName="fk_team_plan__team_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="team"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="shift_id"
+                                 baseTableName="team_plan"
+                                 constraintName="fk_team_plan__shift_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shift"
+                                 />
+    </changeSet>
+</databaseChangeLog>

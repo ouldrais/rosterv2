@@ -1,0 +1,102 @@
+<div>
+  <h2 id="page-heading" data-cy="ShiftTypeHeading">
+    <span jhiTranslate="rosterv2App.shiftType.home.title">Shift Types</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rosterv2App.shiftType.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-shift-type"
+        [routerLink]="['/shift-type/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rosterv2App.shiftType.home.createLabel">Create a new Shift Type</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (shiftTypes?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="rosterv2App.shiftType.home.notFound">No Shift Types found</span>
+    </div>
+  }
+
+  @if (shiftTypes && shiftTypes.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="key">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shiftType.key">Key</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shiftType.id">Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="start">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shiftType.start">Start</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="end">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shiftType.end">End</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (shiftType of shiftTypes; track trackId) {
+            <tr data-cy="entityTable">
+              <td>{{ shiftType.key }}</td>
+              <td>
+                <a [routerLink]="['/shift-type', shiftType.id, 'view']">{{ shiftType.id }}</a>
+              </td>
+              <td>{{ shiftType.start | formatMediumDatetime }}</td>
+              <td>{{ shiftType.end | formatMediumDatetime }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/shift-type', shiftType.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/shift-type', shiftType.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(shiftType)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

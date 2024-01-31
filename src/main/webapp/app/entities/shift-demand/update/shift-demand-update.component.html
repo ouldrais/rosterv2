@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-shift-demand-heading"
+        data-cy="ShiftDemandCreateUpdateHeading"
+        jhiTranslate="rosterv2App.shiftDemand.home.createOrEditLabel"
+      >
+        Create or edit a Shift Demand
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftDemand.count" for="field_count">Count</label>
+          <input type="number" class="form-control" name="count" id="field_count" data-cy="count" formControlName="count" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftDemand.shift" for="field_shift">Shift</label>
+          <select class="form-control" id="field_shift" data-cy="shift" name="shift" formControlName="shift" [compareWith]="compareShift">
+            <option [ngValue]="null"></option>
+            @for (shiftOption of shiftsSharedCollection; track $index) {
+              <option [ngValue]="shiftOption">{{ shiftOption.key }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftDemand.task" for="field_task">Task</label>
+          <select class="form-control" id="field_task" data-cy="task" name="task" formControlName="task" [compareWith]="compareTask">
+            <option [ngValue]="null"></option>
+            @for (taskOption of tasksSharedCollection; track $index) {
+              <option [ngValue]="taskOption">{{ taskOption.key }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftDemand.position" for="field_position">Position</label>
+          <select
+            class="form-control"
+            id="field_position"
+            data-cy="position"
+            name="position"
+            formControlName="position"
+            [compareWith]="comparePosition"
+          >
+            <option [ngValue]="null"></option>
+            @for (positionOption of positionsSharedCollection; track $index) {
+              <option [ngValue]="positionOption">{{ positionOption.key }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.shiftDemand.department" for="field_department">Department</label>
+          <select
+            class="form-control"
+            id="field_department"
+            data-cy="department"
+            name="department"
+            formControlName="department"
+            [compareWith]="compareDepartment"
+          >
+            <option [ngValue]="null"></option>
+            @for (departmentOption of departmentsSharedCollection; track $index) {
+              <option [ngValue]="departmentOption">{{ departmentOption.key }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

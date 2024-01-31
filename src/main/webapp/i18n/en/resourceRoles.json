@@ -1,0 +1,25 @@
+{
+  "rosterv2App": {
+    "resourceRoles": {
+      "home": {
+        "title": "Resource Roles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resource Roles",
+        "createOrEditLabel": "Create or edit a Resource Roles",
+        "notFound": "No Resource Roles found"
+      },
+      "created": "A new Resource Roles is created with identifier {{ param }}",
+      "updated": "A Resource Roles is updated with identifier {{ param }}",
+      "deleted": "A Resource Roles is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resource Roles {{ id }}?"
+      },
+      "detail": {
+        "title": "Resource Roles"
+      },
+      "id": "ID",
+      "role": "Role",
+      "resource": "Resource"
+    }
+  }
+}

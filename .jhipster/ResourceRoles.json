@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": "20240131233146"
+  },
+  "applications": "*",
+  "entityTableName": "resource_roles",
+  "fields": [],
+  "name": "ResourceRoles",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "role",
+      "relationshipName": "role",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "resource",
+      "relationshipName": "resource",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

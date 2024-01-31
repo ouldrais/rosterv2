@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ResourceRoles.
+    -->
+    <changeSet id="20240131233146-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="role_id"
+                                 baseTableName="resource_roles"
+                                 constraintName="fk_resource_roles__role_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="resource_id"
+                                 baseTableName="resource_roles"
+                                 constraintName="fk_resource_roles__resource_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resource"
+                                 />
+    </changeSet>
+</databaseChangeLog>

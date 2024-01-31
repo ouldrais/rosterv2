@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resourcePlan) {
+      <div>
+        <h2 data-cy="resourcePlanDetailsHeading"><span jhiTranslate="rosterv2App.resourcePlan.detail.title">Resource Plan</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ resourcePlan.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourcePlan.availability">Availability</span></dt>
+          <dd>
+            <span>{{ resourcePlan.availability }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourcePlan.resource">Resource</span></dt>
+          <dd>
+            @if (resourcePlan.resource) {
+              <div>
+                <a [routerLink]="['/resource', resourcePlan.resource.id, 'view']">{{ resourcePlan.resource.key }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourcePlan.shift">Shift</span></dt>
+          <dd>
+            @if (resourcePlan.shift) {
+              <div>
+                <a [routerLink]="['/shift', resourcePlan.shift.id, 'view']">{{ resourcePlan.shift.key }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourcePlan.position">Position</span></dt>
+          <dd>
+            @if (resourcePlan.position) {
+              <div>
+                <a [routerLink]="['/position', resourcePlan.position.id, 'view']">{{ resourcePlan.position.key }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/resource-plan', resourcePlan.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

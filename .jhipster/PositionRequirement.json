@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20240131232546"
+  },
+  "applications": "*",
+  "entityTableName": "position_requirement",
+  "fields": [
+    {
+      "fieldName": "mandatoty",
+      "fieldType": "String"
+    }
+  ],
+  "name": "PositionRequirement",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "training",
+      "relationshipName": "training",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "position",
+      "relationshipName": "position",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

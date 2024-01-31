@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-resource-roles-heading"
+        data-cy="ResourceRolesCreateUpdateHeading"
+        jhiTranslate="rosterv2App.resourceRoles.home.createOrEditLabel"
+      >
+        Create or edit a Resource Roles
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.resourceRoles.role" for="field_role">Role</label>
+          <select class="form-control" id="field_role" data-cy="role" name="role" formControlName="role" [compareWith]="compareRole">
+            <option [ngValue]="null"></option>
+            @for (roleOption of rolesSharedCollection; track $index) {
+              <option [ngValue]="roleOption">{{ roleOption.key }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.resourceRoles.resource" for="field_resource">Resource</label>
+          <select
+            class="form-control"
+            id="field_resource"
+            data-cy="resource"
+            name="resource"
+            formControlName="resource"
+            [compareWith]="compareResource"
+          >
+            <option [ngValue]="null"></option>
+            @for (resourceOption of resourcesSharedCollection; track $index) {
+              <option [ngValue]="resourceOption">{{ resourceOption.key }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

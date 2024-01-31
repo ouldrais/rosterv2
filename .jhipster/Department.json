@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "changelogDate": "20240131232746"
+  },
+  "applications": "*",
+  "entityTableName": "department",
+  "fields": [
+    {
+      "fieldName": "key",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "team",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Department",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "facility",
+      "relationshipName": "facility",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

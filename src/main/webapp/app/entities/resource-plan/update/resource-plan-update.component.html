@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-resource-plan-heading"
+        data-cy="ResourcePlanCreateUpdateHeading"
+        jhiTranslate="rosterv2App.resourcePlan.home.createOrEditLabel"
+      >
+        Create or edit a Resource Plan
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.resourcePlan.availability" for="field_availability">Availability</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="availability"
+            id="field_availability"
+            data-cy="availability"
+            formControlName="availability"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.resourcePlan.resource" for="field_resource">Resource</label>
+          <select
+            class="form-control"
+            id="field_resource"
+            data-cy="resource"
+            name="resource"
+            formControlName="resource"
+            [compareWith]="compareResource"
+          >
+            <option [ngValue]="null"></option>
+            @for (resourceOption of resourcesSharedCollection; track $index) {
+              <option [ngValue]="resourceOption">{{ resourceOption.key }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.resourcePlan.shift" for="field_shift">Shift</label>
+          <select class="form-control" id="field_shift" data-cy="shift" name="shift" formControlName="shift" [compareWith]="compareShift">
+            <option [ngValue]="null"></option>
+            @for (shiftOption of shiftsSharedCollection; track $index) {
+              <option [ngValue]="shiftOption">{{ shiftOption.key }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="rosterv2App.resourcePlan.position" for="field_position">Position</label>
+          <select
+            class="form-control"
+            id="field_position"
+            data-cy="position"
+            name="position"
+            formControlName="position"
+            [compareWith]="comparePosition"
+          >
+            <option [ngValue]="null"></option>
+            @for (positionOption of positionsSharedCollection; track $index) {
+              <option [ngValue]="positionOption">{{ positionOption.key }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

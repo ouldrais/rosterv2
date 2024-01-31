@@ -1,0 +1,30 @@
+{
+  "rosterv2App": {
+    "resourceTraining": {
+      "home": {
+        "title": "Resource Trainings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resource Training",
+        "createOrEditLabel": "Create or edit a Resource Training",
+        "notFound": "No Resource Trainings found"
+      },
+      "created": "A new Resource Training is created with identifier {{ param }}",
+      "updated": "A Resource Training is updated with identifier {{ param }}",
+      "deleted": "A Resource Training is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resource Training {{ id }}?"
+      },
+      "detail": {
+        "title": "Resource Training"
+      },
+      "id": "ID",
+      "status": "Status",
+      "level": "Level",
+      "trainer": "Trainer",
+      "activeFrom": "Active From",
+      "activeto": "Activeto",
+      "resource": "Resource",
+      "training": "Training"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resourceTraining) {
+      <div>
+        <h2 data-cy="resourceTrainingDetailsHeading">
+          <span jhiTranslate="rosterv2App.resourceTraining.detail.title">Resource Training</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ resourceTraining.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceTraining.status">Status</span></dt>
+          <dd>
+            <span>{{ resourceTraining.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceTraining.level">Level</span></dt>
+          <dd>
+            <span>{{ resourceTraining.level }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceTraining.trainer">Trainer</span></dt>
+          <dd>
+            <span>{{ resourceTraining.trainer }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceTraining.activeFrom">Active From</span></dt>
+          <dd>
+            <span>{{ resourceTraining.activeFrom | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceTraining.activeto">Activeto</span></dt>
+          <dd>
+            <span>{{ resourceTraining.activeto | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceTraining.resource">Resource</span></dt>
+          <dd>
+            @if (resourceTraining.resource) {
+              <div>
+                <a [routerLink]="['/resource', resourceTraining.resource.id, 'view']">{{ resourceTraining.resource.key }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceTraining.training">Training</span></dt>
+          <dd>
+            @if (resourceTraining.training) {
+              <div>
+                <a [routerLink]="['/training', resourceTraining.training.id, 'view']">{{ resourceTraining.training.key }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/resource-training', resourceTraining.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
