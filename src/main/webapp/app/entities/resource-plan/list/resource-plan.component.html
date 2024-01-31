@@ -1,0 +1,125 @@
+<div>
+  <h2 id="page-heading" data-cy="ResourcePlanHeading">
+    <span jhiTranslate="rosterv2App.resourcePlan.home.title">Resource Plans</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rosterv2App.resourcePlan.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-resource-plan"
+        [routerLink]="['/resource-plan/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rosterv2App.resourcePlan.home.createLabel">Create a new Resource Plan</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (resourcePlans?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="rosterv2App.resourcePlan.home.notFound">No Resource Plans found</span>
+    </div>
+  }
+
+  @if (resourcePlans && resourcePlans.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="availability">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.resourcePlan.availability">Availability</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resource.key">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.resourcePlan.resource">Resource</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="shift.key">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.resourcePlan.shift">Shift</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="position.key">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.resourcePlan.position">Position</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (resourcePlan of resourcePlans; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/resource-plan', resourcePlan.id, 'view']">{{ resourcePlan.id }}</a>
+              </td>
+              <td>{{ resourcePlan.availability }}</td>
+              <td>
+                @if (resourcePlan.resource) {
+                  <div>
+                    <a [routerLink]="['/resource', resourcePlan.resource.id, 'view']">{{ resourcePlan.resource.key }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (resourcePlan.shift) {
+                  <div>
+                    <a [routerLink]="['/shift', resourcePlan.shift.id, 'view']">{{ resourcePlan.shift.key }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (resourcePlan.position) {
+                  <div>
+                    <a [routerLink]="['/position', resourcePlan.position.id, 'view']">{{ resourcePlan.position.key }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/resource-plan', resourcePlan.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/resource-plan', resourcePlan.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(resourcePlan)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

@@ -1,0 +1,26 @@
+{
+  "rosterv2App": {
+    "refCalendar": {
+      "home": {
+        "title": "RefCalendars",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Ref Calendar",
+        "createOrEditLabel": "Créer ou éditer un Ref Calendar",
+        "notFound": "Aucun Ref Calendar trouvé"
+      },
+      "created": "Un nouveau Ref Calendar a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Calendar avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Calendar avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Ref Calendar {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Calendar"
+      },
+      "key": "Key",
+      "id": "Id",
+      "status": "Status",
+      "shiftType": "Shift Type"
+    }
+  }
+}

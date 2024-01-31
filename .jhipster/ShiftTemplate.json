@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "changelogDate": "20240131232946"
+  },
+  "applications": "*",
+  "entityTableName": "shift_template",
+  "fields": [
+    {
+      "fieldName": "key",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "shiftStart",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "shiftEnd",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "name": "ShiftTemplate",
+  "relationships": [],
+  "searchEngine": "no"
+}

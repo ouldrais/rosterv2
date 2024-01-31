@@ -1,0 +1,26 @@
+{
+  "rosterv2App": {
+    "position": {
+      "home": {
+        "title": "Positions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Position",
+        "createOrEditLabel": "Créer ou éditer un Position",
+        "notFound": "Aucun Position trouvé"
+      },
+      "created": "Un nouveau Position a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Position avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Position avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Position {{ id }} ?"
+      },
+      "detail": {
+        "title": "Position"
+      },
+      "id": "ID",
+      "key": "Key",
+      "leadership": "Leadership",
+      "department": "Department"
+    }
+  }
+}

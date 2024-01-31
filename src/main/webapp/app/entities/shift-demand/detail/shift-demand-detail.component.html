@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (shiftDemand) {
+      <div>
+        <h2 data-cy="shiftDemandDetailsHeading"><span jhiTranslate="rosterv2App.shiftDemand.detail.title">Shift Demand</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ shiftDemand.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftDemand.count">Count</span></dt>
+          <dd>
+            <span>{{ shiftDemand.count }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftDemand.shift">Shift</span></dt>
+          <dd>
+            @if (shiftDemand.shift) {
+              <div>
+                <a [routerLink]="['/shift', shiftDemand.shift.id, 'view']">{{ shiftDemand.shift.key }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftDemand.task">Task</span></dt>
+          <dd>
+            @if (shiftDemand.task) {
+              <div>
+                <a [routerLink]="['/task', shiftDemand.task.id, 'view']">{{ shiftDemand.task.key }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftDemand.position">Position</span></dt>
+          <dd>
+            @if (shiftDemand.position) {
+              <div>
+                <a [routerLink]="['/position', shiftDemand.position.id, 'view']">{{ shiftDemand.position.key }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftDemand.department">Department</span></dt>
+          <dd>
+            @if (shiftDemand.department) {
+              <div>
+                <a [routerLink]="['/department', shiftDemand.department.id, 'view']">{{ shiftDemand.department.key }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/shift-demand', shiftDemand.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

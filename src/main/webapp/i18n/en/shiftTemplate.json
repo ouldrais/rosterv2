@@ -1,0 +1,27 @@
+{
+  "rosterv2App": {
+    "shiftTemplate": {
+      "home": {
+        "title": "Shift Templates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Shift Template",
+        "createOrEditLabel": "Create or edit a Shift Template",
+        "notFound": "No Shift Templates found"
+      },
+      "created": "A new Shift Template is created with identifier {{ param }}",
+      "updated": "A Shift Template is updated with identifier {{ param }}",
+      "deleted": "A Shift Template is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shift Template {{ id }}?"
+      },
+      "detail": {
+        "title": "Shift Template"
+      },
+      "id": "ID",
+      "key": "Key",
+      "shiftStart": "Shift Start",
+      "shiftEnd": "Shift End",
+      "type": "Type"
+    }
+  }
+}

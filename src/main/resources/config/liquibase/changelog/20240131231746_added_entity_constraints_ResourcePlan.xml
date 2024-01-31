@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ResourcePlan.
+    -->
+    <changeSet id="20240131231746-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="resource_id"
+                                 baseTableName="resource_plan"
+                                 constraintName="fk_resource_plan__resource_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resource"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="shift_id"
+                                 baseTableName="resource_plan"
+                                 constraintName="fk_resource_plan__shift_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shift"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="position_id"
+                                 baseTableName="resource_plan"
+                                 constraintName="fk_resource_plan__position_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="position"
+                                 />
+    </changeSet>
+</databaseChangeLog>

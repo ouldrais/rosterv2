@@ -1,0 +1,99 @@
+<div>
+  <h2 id="page-heading" data-cy="RefRotationHeading">
+    <span jhiTranslate="rosterv2App.refRotation.home.title">Ref Rotations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rosterv2App.refRotation.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ref-rotation"
+        [routerLink]="['/ref-rotation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rosterv2App.refRotation.home.createLabel">Create a new Ref Rotation</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (refRotations?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="rosterv2App.refRotation.home.notFound">No Ref Rotations found</span>
+    </div>
+  }
+
+  @if (refRotations && refRotations.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="order">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.refRotation.order">Order</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="shiftType.key">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.refRotation.shiftType">Shift Type</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (refRotation of refRotations; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/ref-rotation', refRotation.id, 'view']">{{ refRotation.id }}</a>
+              </td>
+              <td>{{ refRotation.order }}</td>
+              <td>
+                @if (refRotation.shiftType) {
+                  <div>
+                    <a [routerLink]="['/shift-type', refRotation.shiftType.id, 'view']">{{ refRotation.shiftType.key }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/ref-rotation', refRotation.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/ref-rotation', refRotation.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(refRotation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

@@ -1,0 +1,26 @@
+{
+  "rosterv2App": {
+    "positionRequirement": {
+      "home": {
+        "title": "Position Requirements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Position Requirement",
+        "createOrEditLabel": "Create or edit a Position Requirement",
+        "notFound": "No Position Requirements found"
+      },
+      "created": "A new Position Requirement is created with identifier {{ param }}",
+      "updated": "A Position Requirement is updated with identifier {{ param }}",
+      "deleted": "A Position Requirement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Position Requirement {{ id }}?"
+      },
+      "detail": {
+        "title": "Position Requirement"
+      },
+      "id": "ID",
+      "mandatoty": "Mandatoty",
+      "training": "Training",
+      "position": "Position"
+    }
+  }
+}

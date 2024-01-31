@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": "20240131231546"
+  },
+  "applications": "*",
+  "entityTableName": "team_plan",
+  "fields": [],
+  "name": "TeamPlan",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "team",
+      "relationshipName": "team",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "shift",
+      "relationshipName": "shift",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

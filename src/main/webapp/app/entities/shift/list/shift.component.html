@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="ShiftHeading">
+    <span jhiTranslate="rosterv2App.shift.home.title">Shifts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="rosterv2App.shift.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-shift"
+        [routerLink]="['/shift/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="rosterv2App.shift.home.createLabel">Create a new Shift</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (shifts?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="rosterv2App.shift.home.notFound">No Shifts found</span>
+    </div>
+  }
+
+  @if (shifts && shifts.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="key">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shift.key">Key</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="shiftStart">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shift.shiftStart">Shift Start</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="shiftEnd">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shift.shiftEnd">Shift End</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="type">
+              <div class="d-flex">
+                <span jhiTranslate="rosterv2App.shift.type">Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (shift of shifts; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/shift', shift.id, 'view']">{{ shift.id }}</a>
+              </td>
+              <td>{{ shift.key }}</td>
+              <td>{{ shift.shiftStart | formatMediumDatetime }}</td>
+              <td>{{ shift.shiftEnd | formatMediumDatetime }}</td>
+              <td>{{ shift.type }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/shift', shift.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/shift', shift.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(shift)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

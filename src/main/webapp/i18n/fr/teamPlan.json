@@ -1,0 +1,25 @@
+{
+  "rosterv2App": {
+    "teamPlan": {
+      "home": {
+        "title": "TeamPlans",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Team Plan",
+        "createOrEditLabel": "Créer ou éditer un Team Plan",
+        "notFound": "Aucun Team Plan trouvé"
+      },
+      "created": "Un nouveau Team Plan a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Team Plan avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Team Plan avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Team Plan {{ id }} ?"
+      },
+      "detail": {
+        "title": "Team Plan"
+      },
+      "id": "ID",
+      "team": "Team",
+      "shift": "Shift"
+    }
+  }
+}

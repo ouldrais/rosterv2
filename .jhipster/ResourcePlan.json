@@ -1,0 +1,38 @@
+{
+  "annotations": {
+    "changelogDate": "20240131231746"
+  },
+  "applications": "*",
+  "entityTableName": "resource_plan",
+  "fields": [
+    {
+      "fieldName": "availability",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "ResourcePlan",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "resource",
+      "relationshipName": "resource",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "shift",
+      "relationshipName": "shift",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "position",
+      "relationshipName": "position",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

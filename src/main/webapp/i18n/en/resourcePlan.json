@@ -1,0 +1,27 @@
+{
+  "rosterv2App": {
+    "resourcePlan": {
+      "home": {
+        "title": "Resource Plans",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resource Plan",
+        "createOrEditLabel": "Create or edit a Resource Plan",
+        "notFound": "No Resource Plans found"
+      },
+      "created": "A new Resource Plan is created with identifier {{ param }}",
+      "updated": "A Resource Plan is updated with identifier {{ param }}",
+      "deleted": "A Resource Plan is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resource Plan {{ id }}?"
+      },
+      "detail": {
+        "title": "Resource Plan"
+      },
+      "id": "ID",
+      "availability": "Availability",
+      "resource": "Resource",
+      "shift": "Shift",
+      "position": "Position"
+    }
+  }
+}

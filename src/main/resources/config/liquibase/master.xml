@@ -17,7 +17,37 @@
     <property name="datetimeType" value="datetime" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231446_added_entity_Team.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231546_added_entity_TeamPlan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231646_added_entity_Resource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231746_added_entity_ResourcePlan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231846_added_entity_ShiftDemand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231946_added_entity_Task.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232046_added_entity_Facility.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232146_added_entity_ShiftType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232246_added_entity_RefCalendar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232346_added_entity_ResourceTraining.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232446_added_entity_Training.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232546_added_entity_PositionRequirement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232646_added_entity_Position.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232746_added_entity_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232846_added_entity_Shift.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232946_added_entity_ShiftTemplate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131233046_added_entity_Role.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131233146_added_entity_ResourceRoles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131233246_added_entity_RefRotation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20240131231546_added_entity_constraints_TeamPlan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231646_added_entity_constraints_Resource.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231746_added_entity_constraints_ResourcePlan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131231846_added_entity_constraints_ShiftDemand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232246_added_entity_constraints_RefCalendar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232346_added_entity_constraints_ResourceTraining.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232546_added_entity_constraints_PositionRequirement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232646_added_entity_constraints_Position.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131232746_added_entity_constraints_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131233146_added_entity_constraints_ResourceRoles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240131233246_added_entity_constraints_RefRotation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

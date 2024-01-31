@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resourceRoles) {
+      <div>
+        <h2 data-cy="resourceRolesDetailsHeading"><span jhiTranslate="rosterv2App.resourceRoles.detail.title">Resource Roles</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ resourceRoles.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceRoles.role">Role</span></dt>
+          <dd>
+            @if (resourceRoles.role) {
+              <div>
+                <a [routerLink]="['/role', resourceRoles.role.id, 'view']">{{ resourceRoles.role.key }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.resourceRoles.resource">Resource</span></dt>
+          <dd>
+            @if (resourceRoles.resource) {
+              <div>
+                <a [routerLink]="['/resource', resourceRoles.resource.id, 'view']">{{ resourceRoles.resource.key }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/resource-roles', resourceRoles.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

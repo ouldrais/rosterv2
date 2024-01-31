@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20240131232246"
+  },
+  "applications": "*",
+  "entityTableName": "ref_calendar",
+  "fields": [
+    {
+      "fieldName": "key",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "name": "RefCalendar",
+  "relationships": [
+    {
+      "otherEntityField": "key",
+      "otherEntityName": "shiftType",
+      "relationshipName": "shiftType",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

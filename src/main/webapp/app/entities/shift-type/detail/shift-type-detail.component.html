@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (shiftType) {
+      <div>
+        <h2 data-cy="shiftTypeDetailsHeading"><span jhiTranslate="rosterv2App.shiftType.detail.title">Shift Type</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="rosterv2App.shiftType.key">Key</span></dt>
+          <dd>
+            <span>{{ shiftType.key }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftType.id">Id</span></dt>
+          <dd>
+            <span>{{ shiftType.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftType.start">Start</span></dt>
+          <dd>
+            <span>{{ shiftType.start | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="rosterv2App.shiftType.end">End</span></dt>
+          <dd>
+            <span>{{ shiftType.end | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/shift-type', shiftType.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
